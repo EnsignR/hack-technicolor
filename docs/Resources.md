@@ -277,7 +277,7 @@ RBI files usually contains encrypted BLI images. You can easily decrypt them usi
 
 ## Checking RBI firmware signature
 
-RBI files are digitally signed by OSIK, which is the public portion of an asymmetric key. This means if you flip a single bit of your RBI file it will be detected as invalid, and won't get flashed. For instance, editing the board name inside an RBI file header to match that one of your board will cause signcheck to fail. Nothing bad happens if you try flashing a bad one, it will simply get refused. Keep in mind that RBI signcheck against OSIK happens before RBI decryption through OSCK. OSIK is the same across multiple board models, but OSCK is different for each one. You can also check by yourself wether an RBI file integrity is compromised or not according to the OSIK for your device. You can do this from your rooted gateway, or from your PC, for any available firmware with known OSIK.
+RBI files are digitally signed by OSIK, which is the public portion of an asymmetric key. This means if you flip a single bit of your RBI file it will be detected as invalid, and won't get flashed. For instance, editing the board name inside an RBI file header to match that one of your board will cause signcheck to fail. Nothing bad happens if you try flashing a bad one, it will simply get refused. Keep in mind that RBI signcheck against OSIK happens before RBI decryption through OSCK. OSIK is the same across multiple board models, but OSCK is different for each one. You can also check by yourself whether an RBI file integrity is compromised or not according to the OSIK for your device. You can do this from your rooted gateway, or from your PC, for any available firmware with known OSIK.
 
 From the router, just run:
 ```bash
