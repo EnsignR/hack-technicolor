@@ -309,7 +309,7 @@ If you are not sure you already have the same firmware saved somewhere, you can 
 
 You definitely need instead to backup all other partitions, especially the `eripv2` one, and all the others. You can get the full partition list with `cat /proc/mtd`
 
-It is good practice to keep moving dumped partitions out of the gateway memory as soon as you complete one in order to minimise the chance of filling the ram, and causing an out-of-memory crash and reboot. Here we show how to do that by using an USB drive attached to the gateway. Alternatively, you can also move them out using SCP in case your device has no USB ports or you don0t have an USB drive available.
+It is good practice to keep moving dumped partitions out of the gateway memory as soon as you complete one in order to minimise the chance of filling the ram, and causing an out-of-memory crash and reboot. Here we show how to do that by using an USB drive attached to the gateway. Alternatively, you can also move them out using SCP in case your device has no USB ports or you don't have an USB drive available.
 
 1. If you are going to usa an USB drive, you will need to know its mountpoint. Plug it in and run: `ls -la /mnt/usb`
 
