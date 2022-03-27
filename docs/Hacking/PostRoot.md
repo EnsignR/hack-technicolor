@@ -139,7 +139,7 @@ date -s=2022.04.01-23:01:00
 The above command sets the date/time to April 1st, 2022 at 11:01pm. To set the correct date adjust the date string accordingly.
 
 ### Checking the USB Path
-The _script_ that will perform the backup assumes the USB flash drive is mounted at ```/mnt/usb/USB-A1```. Before you run the commands you should first check that is the case for your device. Insert your USB flash drive into your device and confirm the path with the following commands.
+The _script_ that will perform the backup assumes the USB flash drive is mounted at ```/mnt/usb/USB-A1```. Before you run the commands you should first check that is the case for your device. Insert your USB flash drive into your device and confirm the path with the following command.
 
 ```bash
 ls -las /mnt/usb/
