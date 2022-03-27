@@ -133,7 +133,7 @@ The following instructions require a USB flash drive (with about 1.5GB free spac
 The first step in this process is optional, but might be handy in future to determine when your backups were make. If your device has lost (or never recieved) the current time than all the timestamps of any created file will be incorrect. Setting the time with the following command will ensure the correct timestamps are applied to your backup files.
 
 ```bash
-date -s=2022.04.01-23:01:00
+date -s2022.04.01-23:01:00
 ```
 
 The above command sets the date/time to April 1st, 2022 at 11:01pm. To set the correct date adjust the date string accordingly.
