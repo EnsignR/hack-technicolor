@@ -126,7 +126,7 @@ Now you **must** harden your access, to prevent it from being lost because of li
 
 While backing up your device's filesystem is optional, it's also recommended in case something goes wrong.
 
-The following instructions require a USB flash drive (with about 1.5GB free space - device dependent). For alternative or more detailed instructions please refer to [Recourses page](../../Recourses/#making-dumps).
+The following instructions require a USB flash drive (with about 1.5GB free space - device dependent). For alternative or more detailed instructions please refer to [Resources page](../../Resources/#making-dumps).
 
 
 ### Setting the Devices Date
