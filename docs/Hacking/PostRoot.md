@@ -174,6 +174,7 @@ done
 tar -cz -C /overlay -f $USB/bank_2.tar.gz bank_2
 ```
 
-!!! hint ```mtd0``` (NAND.0) and ```mtd2``` (aka ```rootfs_data```  or ```userfs``` on older devices) will fail comparision, the latter probably because the bash history will change with each command run and this is stored here.
+!!! hint "Some MTD will file comparison"
+    ```mtd0``` (NAND.0) and ```mtd2``` (aka ```rootfs_data```  or ```userfs``` on older devices) will fail comparision, the latter probably because the bash history will change with each command run and this is stored here.
 
 You should now have a backup of all the MTD filesystems on your device stored on the USB which you can now unmount.
