@@ -170,7 +170,7 @@ dd if=/dev/$f of=$USB/$f.dump; \
 { cmp /dev/$f $USB/$f.dump && echo ... $f done; } \
 done
 
-# create a tar.gz of /overlay/bank_2, which is useful for restoring on a file, by file basis
+# create a tar.gz of /overlay/bank_2, useful for restoring on a file-by-file basis
 tar -cz -C /overlay -f $USB/bank_2.tar.gz bank_2
 ```
 
