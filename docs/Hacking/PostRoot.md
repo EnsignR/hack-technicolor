@@ -119,3 +119,61 @@ passwd
 ```
 
 Now you **must** harden your access, to prevent it from being lost because of limited RBI availability or automatic firmware upgrades in future. See [Hardening Root Access](../../Hardening/) page.
+
+
+
+## Optional Device Backup
+
+While backing up your device's filesystem is optional, it's also recommended in case something goes wrong.
+
+The following instructions require a USB flash drive (with about 1.5GB free space - device dependent). For alternative or more detailed instructions please refer to [Recourses page](../../Recourses/#making-dumps).
+
+
+### Setting the Devices Date
+The first step in this process is optional, but might be handy in future to determine when your backups were make. If your device has lost (or never recieved) the current time than all the timestamps of any created file will be incorrect. Setting the time with the following command will ensure the correct timestamps are applied to your backup files.
+
+```bash
+date -s=2022.04.01-23:01:00
+```
+
+The above command sets the date/time to April 1st, 2022 at 11:01pm. To set the correct date adjust the date string accordingly.
+
+### Checking the USB Path
+The _script_ that will perform the backup assumes the USB flash drive is mounted at ```/mnt/usb/USB-A1```. Before you run the commands you should first check that is the case for your device. Insert your USB flash drive into your device and confirm the path with the following commands.
+
+```bash
+ls -las /mnt/usb/
+```
+
+The output should be something akin to the following. If not then you'll need to adjust the _script_ accordingly. Note the link (like a shortcut) ```USB-A1``` pointing to the actual mount point of the flash drive in ```/tmp```.
+
+```bash
+     0 drwxr-xr-x    2 root     root             0 Mar 26 17:26 .
+     0 drwxr-xr-x    1 root     root             0 Nov  1 16:43 ..
+     0 lrwxrwxrwx    1 root     root            20 Mar 26 17:26 USB-A1 -> /tmp/run/mountd/sda1
+```
+
+### Creating the backups
+After inserting your USB flash drive into the device and checking its path as above you can run the following _script_ to backup your devices file system and compare the backups with the originals. While it's probably not neccessary to backup everything, it probably doesn't hurt either.
+
+```bash
+# Set USB path - change as appropriate if necessary 
+USB="/mnt/usb/USB-A1"
+
+# Display all the MTDs and save to a file on the flash for future reference
+cat /proc/mtd | tee $USB/mtd.txt
+
+# backup all the MTDs one at a time and check with file compare
+for f in $(cat /proc/mtd | grep "mtd" | cut -d: -f1); \
+do echo backing up $f; \
+dd if=/dev/$f of=$USB/$f.dump; \
+{ cmp /dev/$f $USB/$f.dump && echo ... $f done; } \
+done
+
+# create a tar.gz of /overlay/bank_2, which is useful for restoring on a file, by file basis
+tar -cz -C /overlay -f $USB/bank_2.tar.gz bank_2
+```
+
+!!! hint ```mtd0``` (NAND.0) and ```mtd2``` (aka ```rootfs_data```  or ```userfs``` on older devices) will fail comparision, the latter probably because the bash history will change with each command run and this is stored here.
+
+You should new have a backup of all the MTD filesystems on your device stored on the USB which you can now unmount.
