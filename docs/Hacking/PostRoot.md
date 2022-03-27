@@ -152,6 +152,7 @@ The output should be something akin to the following. If not then you'll need to
      0 drwxr-xr-x    1 root     root             0 Nov  1 16:43 ..
      0 lrwxrwxrwx    1 root     root            20 Mar 26 17:26 USB-A1 -> /tmp/run/mountd/sda1
 ```
+The full path of this link is ```/mnt/usb/USB-A1``` if this is not correct for your device or situation then adjust the path in the commands below before running them.
 
 ### Creating the backups
 After inserting your USB flash drive into the device and checking its path as above you can run the following _script_ to backup your devices file system and compare the backups with the originals. While it's probably not neccessary to backup everything, it probably doesn't hurt either.
