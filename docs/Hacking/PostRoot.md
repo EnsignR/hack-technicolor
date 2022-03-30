@@ -173,6 +173,8 @@ done
 
 # create a tar.gz of /overlay/bank_2, useful for restoring on a file-by-file basis
 tar -cz -C /overlay -f $USB/bank_2.tar.gz bank_2
+
+sync
 ```
 
 !!! hint "Some MTD will fail file comparison"
