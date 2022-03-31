@@ -130,7 +130,7 @@ The following instructions require a USB flash drive (with about 1.5GB free spac
 
 
 ### Setting the Devices Date
-The first step in this process is optional, but might be handy in future to determine when your backups were make. If your device has lost (or never recieved) the current time than all the timestamps of any created file will be incorrect. Setting the time with the following command will ensure the correct timestamps are applied to your backup files.
+The first step in this process is optional, but might be handy in future to determine when your backups were make. If your device has lost (or never recieved) the current time than all the timestamps of any created file will be incorrect. You can firstly check the devices date type entering ```date``` (without any arguments) at the command prompt. Then is require you can set the time and date with the following command. This will ensure the correct timestamps are applied to your backup files.
 
 ```bash
 date -s2022.04.01-23:01:00
